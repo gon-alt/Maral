@@ -1,0 +1,239 @@
+
+/* Estilos para el contenedor de productos */
+#products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 200px;
+  background-color: #fff;
+}
+
+/* Estilos para cada producto */
+.product {
+  margin-top: 200px;
+  justify-content:center;  
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+  /* Estilos adicionales */
+  body {
+	background: #ffff;
+	font-family: Courier;
+	color: #222222;
+	font-size: 1rem;
+	line-height: 1em;
+	margin: 0;
+  }
+
+  /* boton de wpp */
+
+  img.btn-whatsapp {
+	display: block !important;
+	position: fixed;
+	z-index: 9999999;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+	border-radius:100px !important;
+	}
+	img.btn-whatsapp:hover{
+	border-radius:100px !important;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(7,94,84,1); 
+	-moz-box-shadow: 0px 0px 15px 0px rgba(7,94,84,1);
+	box-shadow: 0px 0px 15px 0px rgba(7,94,84,1);
+	transition-duration: 1s;
+	} 
+  
+  .container {
+	width: 100%;
+	max-width: 980px;
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	text-align: center;
+  }
+  
+  .header {
+	background: #222222;
+	color: white;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+  }
+  
+  .main {
+	padding-top: 5rem;
+  }
+  
+  .header a {
+	color: white;
+	text-decoration: none;
+  }
+  
+  .navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: noen;
+	text-align: center;
+  }
+  
+  .navigation ul li {
+	display: inline-block;
+  }
+  
+  .navigation ul li a {
+	display: block;
+	padding: 1.5rem;
+	transition: all 0.4s linear;
+	border-radius: 5px;
+  }
+  
+  .navigation ul li a:hover {
+	background: #4a4a4a;
+  }
+  
+  .articulo {
+	margin: 3rem;
+  }
+  
+  .footer {
+	background: #222222;
+	color: white;
+	justify-content: space-between;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+  }
+  
+  .footer a {
+	color: #D8D7D7;
+	text-decoration: none;
+  }
+  
+  .footer nav {
+	font-size: 1rem;
+	float: left;
+  }
+  
+  .foto {
+	padding-left: 2rem;
+  }
+  
+  .menu1-footer {
+	padding-left: 2rem;
+  }
+  
+  .menu2-footer {
+	padding-left: 2rem;
+  }
+  
+  .menu3-footer {
+	padding-left: 2rem;
+  }
+  
+  .NEWS {
+	padding-left: 3rem;
+	text-align: center;
+	color: #ffffff;
+  }
+  
+  .derechos {
+	font-size: 0.9rem;
+	text-align: center;
+  }
+  
+  .galeria {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  .galeria img {
+	width: 300px;
+	height: 170px;
+  }
+  
+  .menu-icon {
+	display: none;
+  }
+  
+  @media only screen and (max-width: 824px) {
+	.menu-icon {
+	  display: block;
+	  cursor: pointer;
+	  padding: 0.5rem 1rem;
+	}
+  
+	.navigation {
+	  width: 100%;
+	  margin-top: 1rem;
+	}
+  
+	.navigation ul {
+	  display: none;
+	}
+  
+	.navigation ul.show {
+	  display: block;
+	}
+  
+	.navigation ul li {
+	  display: block;
+	}
+  
+	.navigation {
+	  display: block;
+	  padding: 0.5rem 0;
+	}
+  
+	h2 {
+	  text-align: center;
+	}
+  
+	h2 a {
+	  color: rgb(50, 50, 50);
+	  text-decoration: none;
+	}
+  
+	.form {
+	  width: 100%;
+	  max-width: 600px;
+	  margin: 0 auto;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	}
+  
+	.form input {
+	  width: 90%;
+	  height: 30px;
+	  margin: .5rem;
+	}
+  
+	.form button {
+	  padding: .5em 1em;
+	  border: none;
+	  background: rgb(0, 0, 0);
+	  cursor: pointer;
+	  color: #ffffff;
+	}
+  
+	.form-container {
+	  max-width: 500px;
+	  margin: 0 auto;
+	}
+  
+	.form-element {
+	  display: block;
+	  width: 80%;
+	  margin: 5rem auto;
+	}
+  }
+  

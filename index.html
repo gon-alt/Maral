@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="estilos.css"> 
+  <link rel="icon" type="image/jpg" href="/img/logo.jpg">
+  <meta name="viewport" content="width=device-whidth, initial-scale=1">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="/img/logo.jpg" class="logo"><img src="img/logo.jpg" width="150" height="150" alt="Logo"></a>
+      <span class="menu-icon">Menú</span>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#"><b>Nosotros</b></a></li>
+          <li><a href="#"><b>Contacto</b></a></li>
+          <li><a href="#"><b>Tienda</b></a></li>
+          <li><a href="#"><b>Preguntas</b></a></li>
+          <li><a href="#"><b>Fotos</b></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    
+  <img class="btn-whatsapp" src="https://clientes.dongee.com/whatsapp.png" width="64" height="64" alt="Whatsapp" onclick="window.location.href='https://wa.me/573001112233?text=Hola!%20Estoy%20interesado%20en%20tu%20servicio'">
+
+  <main class="main">
+    <div id="products-container"></div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      // Código JavaScript para conectarse a la hoja de cálculo de Google y mostrar los datos de los productos
+
+      // ID de la hoja de cálculo
+      var spreadsheetID = '1eej4W-JOy2k33mTn7D7O8PRLU6gtLtETU5TrhDeVBNU';
+
+      // Clave de API de Google Sheets
+      var apiKey = 'AIzaSyDJSA5v5fEwZEDP2VKgVrUYQVaZAVbDHac';
+
+      // Número máximo de productos por fila
+      var maxProductsPerRow = 4;
+
+      // Función para cargar la API de Google Sheets
+      function loadSheetsAPI() {
+        gapi.client.load('sheets', 'v4', getSpreadsheetData);
+      }
+
+      // Función para obtener los datos de la hoja de cálculo
+      function getSpreadsheetData() {
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: spreadsheetID,
+          range: 'Sheet1!A2:D' // Rango que contiene los datos de los productos en la hoja de cálculo
+        }).then(function(response) {
+          var values = response.result.values;
+
+          var productsContainer = document.getElementById('products-container');
+          var rowElement;
+
+          // Iterar sobre los valores de la hoja de cálculo y mostrar los datos de los productos
+          values.forEach(function(row, index) {
+            if (index % maxProductsPerRow === 0) {
+              rowElement = document.createElement('div');
+              rowElement.classList.add('product-row');
+              productsContainer.appendChild(rowElement);
+            }
+
+            var productName = row[0];
+            var productPrice = row[1];
+            var productImage = row[2];
+            var productDescription = row[3];
+
+            // Crear elementos HTML para mostrar los datos del producto
+            var productElement = document.createElement('div');
+            var nameElement = document.createElement('h2');
+            var priceElement = document.createElement('p');
+            var imageElement = document.createElement('img');
+            var descriptionElement = document.createElement('p');
+
+            nameElement.textContent = productName;
+            priceElement.textContent = 'Precio: ' + productPrice;
+            imageElement.src = productImage;
+            imageElement.style.width = '75px';
+            imageElement.style.height = '75px';
+            descriptionElement.textContent = productDescription;
+
+            productElement.appendChild(nameElement);           
+            productElement.appendChild(imageElement);
+            productElement.appendChild(descriptionElement);
+            productElement.appendChild(priceElement);
+
+            rowElement.appendChild(productElement);
+          });
+        }, function(error) {
+          console.error('Error al obtener los datos de la hoja de cálculo:', error.result.error.message);
+        });
+      }
+
+      // Inicializar la API de Google Sheets
+      function init() {
+        gapi.client.init({
+          apiKey: apiKey,
+          discoveryDocs: ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+        }).then(loadSheetsAPI, function(error) {
+          console.error('Error al cargar la API de Google Sheets:', error);
+        });
+      }
+
+      // Cargar la API de Google Client
+      gapi.load('client', init);
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+  </main>
+
+  <footer class="footer">
+    <nav class="menu2-footer">
+      <ul>
+        <h3>COMPRAS</h3>
+        <li><a href="#">Comprar en Argentina</a></li>
+        <li><a href="#">Compras internacionales</a></li>
+        <li><a href="#">Ver nuestra tienda</a></li>
+      </ul>
+    </nav>
+    <nav class="menu3-footer">
+      <ul>
+        <h3>PAGOS/ENVIOS</h3>
+        <li><a href="#">Mercado pago</a></li>
+        <li><a href="#">Transferencias</a></li>
+        <li><a href="#">Envíos por OCA</a></li>
+      </ul>
+    </nav>
+    <nav class="NEWS">
+      <h3>SUSCRÍBETE</h3>
+      <form name="formulario" method="post" action="">
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="submit" value="Enviar">
+      </form>
+    </nav>
+    <nav class="foto">
+      <br>
+      <a href="#" class="logo"><img src="img/logo.jpg" width="100" height="100" alt="Logo"></a>
+    </nav>
+    <div class="derechos">
+      <p><br> Derechos de autor © Maral</p>
+    </div>
+  </footer>
+</body>
+</html>
